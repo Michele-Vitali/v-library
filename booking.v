@@ -227,6 +227,8 @@ fn save(mut library []Book){
 		}
 	}
 
+	json_library = pp.prettyprint(json_library)
+
 	os.write_file(file_path, json_library) or {
 		eprintln('Failed to write')
 		return
