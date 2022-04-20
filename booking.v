@@ -18,6 +18,8 @@ fn main(){
 	mut temp := Book{"null", "null", 0, "null"}
 	mut found := -1
 
+	load(mut library)
+
 	println('Hi and welcome to the library!')
 
 	for choice != 0{
@@ -218,8 +220,6 @@ fn save(mut library []Book){
 	mut file_path := './data/library.json'
 	mut json_library := json.encode(library)
 
-	println(json_library)
-
 	if !os.exists(file_path){
 		os.create(file_path) or{
 			eprintln('Failed to create a file')
@@ -231,6 +231,21 @@ fn save(mut library []Book){
 
 	os.write_file(file_path, json_library) or {
 		eprintln('Failed to write')
+		return
+	}
+
+}
+
+fn load(mut library []Book){
+
+	mut file_path := './data/library.json'
+	mut data := os.read_file(file_path) or{
+		eprintln('Failed to read file')
+		return
+	}
+
+	library = json.decode([]Book, data) or{
+		eprintln('Failed to decode JSON')
 		return
 	}
 
