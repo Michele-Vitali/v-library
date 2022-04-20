@@ -13,6 +13,8 @@ struct Book{
 
 fn main(){
 
+	println("CIAO CIAO CIAO")
+
 	mut library := []Book{}
 	mut choice := -1
 	mut temp := Book{"null", "null", 0, "null"}
