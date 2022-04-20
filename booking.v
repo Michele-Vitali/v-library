@@ -238,6 +238,8 @@ fn save(mut library []Book){
 
 fn load(mut library []Book){
 
+	println("SONO QUELLO DI GIT")
+
 	mut file_path := './data/library.json'
 	mut data := os.read_file(file_path) or{
 		eprintln('Failed to read file')
