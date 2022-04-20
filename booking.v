@@ -13,8 +13,6 @@ struct Book{
 
 fn main(){
 
-	println("CIAO CIAO CIAO")
-
 	mut library := []Book{}
 	mut choice := -1
 	mut temp := Book{"null", "null", 0, "null"}
@@ -239,8 +237,6 @@ fn save(mut library []Book){
 }
 
 fn load(mut library []Book){
-
-	println("SONO QUELLO DI GIT")
 
 	mut file_path := './data/library.json'
 	mut data := os.read_file(file_path) or{
